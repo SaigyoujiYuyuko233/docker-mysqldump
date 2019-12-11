@@ -15,4 +15,4 @@ RUN yum install MariaDB-client -y --nogpgcheck \
   && chmod +x entrypoint.sh \
   && mkdir /backups
 
-ENTRYPOINT ['/bin/sh', 'entrypoint.sh']
+ENTRYPOINT ['entrypoint.sh']
