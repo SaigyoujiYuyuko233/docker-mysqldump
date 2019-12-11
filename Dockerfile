@@ -7,12 +7,14 @@ LABEL Description "A simple mysqldump for docker cronjob"
 USER root
 WORKDIR /root
 
-COPY entrypoint.sh entrypoint.sh
-COPY mariadb.repo /etc/yum.repos.d/mariadb.repo
 
+COPY mariadb.repo /etc/yum.repos.d/mariadb.repo
+COPY Centos-base.repo /etc/yum.repos.d/Centos-base.repo
 RUN yum install MariaDB-client -y --nogpgcheck \
-  && yum clean all \
-  && chmod +x entrypoint.sh \
-  && mkdir /backups
+    && yum clean all \
+
+COPY entrypoint.sh entrypoint.sh
+RUN chmod +x entrypoint.sh \
+    && mkdir /backups
 
 ENTRYPOINT ['entrypoint.sh']
