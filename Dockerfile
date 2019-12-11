@@ -9,7 +9,7 @@ WORKDIR /root
 
 
 COPY mariadb.repo /etc/yum.repos.d/mariadb.repo
-COPY Centos-base.repo /etc/yum.repos.d/Centos-base.repo
+COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 RUN yum install MariaDB-client -y --nogpgcheck \
     && yum clean all \
 
