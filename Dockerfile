@@ -11,7 +11,7 @@ WORKDIR /root
 COPY mariadb.repo /etc/yum.repos.d/mariadb.repo
 COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 RUN yum install MariaDB-client -y --nogpgcheck \
-    && yum clean all \
+    && yum clean all
 
 COPY entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh \
