@@ -1,8 +1,8 @@
 FROM centos:7
 
-LABEL Maintainer "SaigyoujiYuyuko233<HGK-SaigyoujiYuyuko@outlook.com>"
-LABEL Version "V1.0.0"
-LABEL Description "A simple mysqldump for docker cronjob"
+LABEL Maintainer="SaigyoujiYuyuko233<HGK-SaigyoujiYuyuko@outlook.com>"
+LABEL Version="V1.0.0"
+LABEL Description="A simple mysqldump for docker cronjob"
 
 USER root
 WORKDIR /root

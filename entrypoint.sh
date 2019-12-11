@@ -1,5 +1,3 @@
-#! /bin/sh
-
 set -e;
 
 #DB_SKIP=${DB_SKIP:-${DB_SKIP}}
