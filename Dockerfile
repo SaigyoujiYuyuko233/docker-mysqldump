@@ -17,4 +17,4 @@ COPY entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh \
     && mkdir /backups
 
-ENTRYPOINT ["/bin/bash", "./entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
