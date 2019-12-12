@@ -13,7 +13,7 @@ fi
 # build mysqldump arguments structure
 arguments+="--host=${DB_HOST} --user=${DB_USER} --password=${DB_PASS} ";
 arguments+=$*;
-arguments+=${OTHER_ARG}" "
+arguments+=${OTHER_ARG}
 
 # this[--databases] arg MUST be the last
 if [[ -n "${DB_NAME}" ]] && [[ "${ALLSERVER_BACKUP}" != "true" ]]; then
