@@ -1,5 +1,5 @@
 ## docker-mysqldump
-a simple mysqldump image for cron job | dockerhub: uuz233/mysqldump
+a simple mysqldump image for mysql mackup | dockerhub: uuz233/mysqldump
 
 ## Arguments
 |   Key    |  Accept value   | Description                   |  Required  |
@@ -9,6 +9,7 @@ a simple mysqldump image for cron job | dockerhub: uuz233/mysqldump
 | DB_NAME  | String    | Name of database that want to backup|True [if missing ALLSERVER_BACKUP arg]|
 | ALLSERVER_BACKUP  | True/False    | backup the hole mysql server|True [if missing DB_NAME arg]      |
 | OTHER_ARG | String | other argument that you want to add | false |
+| SLEEP     | INT (second) | The time to want for doing next backup | true
 
 ## example
 
@@ -19,6 +20,7 @@ docker run --rm \
   -e DB_USER=root \
   -e DB_PASS=pass \
   -e DB_NAME=db1 \ 
+  -e SLEEP=3600 \
   -v ./backups:/backups
 uuz233/mysqldump
 ```
@@ -31,6 +33,7 @@ docker run --rm \
   -e DB_USER=root \
   -e DB_PASS=pass \
   -e ALLSERVER_BACKUP=true \ 
+  -e SLEEP=3600 \
   -v ./backups:/backups
 uuz233/mysqldump
 ```
@@ -45,6 +48,7 @@ docker run --rm \
   -e DB_PASS=pass \
   -e ALLSERVER_BACKUP=true \ 
   -e OTHER_ARG=--lock-tables=0 \
+  -e SLEEP=3600 \
   -v ./backups:/backups
 uuz233/mysqldump
 ```

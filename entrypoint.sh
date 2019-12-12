@@ -26,6 +26,11 @@ echo -e "Dump file: $dumpfile";
 echo -e "Arguments:" ${arguments//--password=[A-Za-z0-9]*/--password=******} "--databases ${DB_NAME} ";
 echo -e "Start backup databases\n";
 
+while true
+do
+echo -e "Backup started $(date +"%G-%m-%d_%H:%M:%S")"
 mysqldump $arguments > $dumpfile;
+sleep ${SLEEP}
+done
 
 echo -e "Finish backup";
