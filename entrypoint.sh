@@ -4,7 +4,6 @@ set -e;
 #DB_SKIP=${DB_SKIP:-${DB_SKIP}}
 
 arguments=''
-dumpfile="/backups/$(date +"%G-%m-%d_%H:%M:%S").sql";
 
 if [[ "${ALLSERVER_BACKUP}" == "true" ]]; then
    arguments+='--all-databases ';
@@ -28,9 +27,12 @@ echo -e "Start backup databases\n";
 
 while true
 do
-echo -e "Backup started $(date +"%G-%m-%d_%H:%M:%S")"
+
+echo -e "Start Backup [$(date +"%G-%m-%d_%H:%M:%S")]"
+dumpfile="/backups/$(date +"%G-%m-%d_%H:%M:%S").sql";
 mysqldump $arguments > $dumpfile;
 sleep ${SLEEP:-3600}
+
 done
 
 echo -e "Finish backup";
