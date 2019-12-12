@@ -30,7 +30,7 @@ while true
 do
 echo -e "Backup started $(date +"%G-%m-%d_%H:%M:%S")"
 mysqldump $arguments > $dumpfile;
-sleep ${SLEEP}
+sleep ${SLEEP:-3600}
 done
 
 echo -e "Finish backup";
